@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Booking</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <div>
+            <p class="eyebrow">Appointment platform</p>
+            <h1>Book a therapist</h1>
+            <p class="subtitle">Choose a service, check availability and send a booking request.</p>
+        </div>
+        <button id="logoutButton" class="secondary hidden">Log out</button>
+    </header>
+
+    <main>
+        <section id="authSection" class="panel auth-grid">
+            <form id="loginForm">
+                <h2>Login</h2>
+                <label>Email</label>
+                <input id="loginEmail" type="email" value="client@example.com" required>
+                <label>Password</label>
+                <input id="loginPassword" type="password" value="client123" required>
+                <button type="submit">Login</button>
+            </form>
+
+            <form id="registerForm">
+                <h2>Create account</h2>
+                <label>Name</label>
+                <input id="registerName" required>
+                <label>Email</label>
+                <input id="registerEmail" type="email" required>
+                <label>Password</label>
+                <input id="registerPassword" type="password" minlength="6" required>
+                <button type="submit">Register</button>
+            </form>
+        </section>
+
+        <section id="appSection" class="hidden">
+            <div class="dashboard-head">
+                <div>
+                    <p class="eyebrow">Dashboard</p>
+                    <h2 id="welcomeText"></h2>
+                </div>
+                <button id="refreshButton" class="secondary">Refresh</button>
+            </div>
+
+            <div class="grid">
+                <section class="panel">
+                    <h2>Services</h2>
+                    <div id="servicesList" class="cards"></div>
+                </section>
+
+                <section class="panel">
+                    <h2>Therapists</h2>
+                    <div id="therapistsList" class="cards"></div>
+                </section>
+            </div>
+
+            <section class="panel">
+                <h2>Available slots</h2>
+                <div id="availabilityList" class="cards"></div>
+            </section>
+
+            <section class="panel">
+                <h2>New booking</h2>
+                <form id="bookingForm" class="booking-form">
+                    <label>Therapist</label>
+                    <select id="bookingTherapist" required></select>
+                    <label>Service</label>
+                    <select id="bookingService" required></select>
+                    <label>Start time</label>
+                    <input id="bookingStart" type="datetime-local" required>
+                    <label>Note</label>
+                    <textarea id="bookingNote" rows="3"></textarea>
+                    <button type="submit">Send booking request</button>
+                </form>
+            </section>
+
+
+            <section id="availabilityFormPanel" class="panel hidden">
+                <h2>Add availability</h2>
+                <form id="availabilityForm" class="booking-form">
+                    <label>Start time</label>
+                    <input id="availabilityStart" type="datetime-local" required>
+                    <label>End time</label>
+                    <input id="availabilityEnd" type="datetime-local" required>
+                    <button type="submit">Add time slot</button>
+                </form>
+            </section>
+
+            <section class="panel">
+                <h2>My bookings</h2>
+                <div id="bookingsList" class="cards"></div>
+            </section>
+        </section>
+
+        <p id="message" class="message hidden"></p>
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
